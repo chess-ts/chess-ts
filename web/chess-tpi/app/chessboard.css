@@ -1,0 +1,90 @@
+.game {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.chessboard {
+	border: solid black;
+	width: fit-content;
+	height: fit-content;
+}
+
+.chessboard * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.rank {
+	display: flex;
+}
+
+.square {
+	width: 100px;
+	height: 100px;
+}
+
+.rank:nth-child(odd) > .square:nth-child(even),
+.rank:nth-child(even) > .square:nth-child(odd) {
+	background-color: #302f31;
+}
+
+.rank:nth-child(odd) > .square:nth-child(odd),
+.rank:nth-child(even) > .square:nth-child(even) {
+	background-color: #d3d3d3;
+}
+
+.no, .br, .bn, .bb, .bq, .bk, .bp, .wr, .wn, .wb, .wq, .wk, .wp {
+	height: 100%;
+	width: 100%;
+    background-size: 100% 100%;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+}
+
+.br { background-image: url('../public/br.png'); }
+.bn { background-image: url('../public/bn.png'); }
+.bb { background-image: url('../public/bb.png'); }
+.bq { background-image: url('../public/bq.png'); }
+.bk { background-image: url('../public/bk.png'); }
+.bp { background-image: url('../public/bp.png'); }
+
+.wr { background-image: url('../public/wr.png'); }
+.wn { background-image: url('../public/wn.png'); }
+.wb { background-image: url('../public/wb.png'); }
+.wq { background-image: url('../public/wq.png'); }
+.wk { background-image: url('../public/wk.png'); }
+.wp { background-image: url('../public/wp.png'); }
+
+.highlight {
+	box-shadow: inset 100px 100px 100px 100px #ff000090;
+}
+
+.check {
+	box-shadow: inset 100px 100px 100px 100px #ff4800cb;
+}
+
+.highlight-move {
+	box-shadow: inset 100px 100px 100px 100px #0000ff90 !important;
+	cursor: pointer;
+}
+
+.highlight-last-move {
+	box-shadow: inset 100px 100px 100px 100px #fcff5d90;
+}
+
+.selected {
+	border: solid #00ff00;
+}
+
+.arrows > * {
+	pointer-events: none;
+}
+
+.flipped {
+	transform: rotate(180deg);
+}

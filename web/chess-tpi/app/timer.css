@@ -1,0 +1,40 @@
+
+.timers {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	height: 200px;
+	width: 100%;
+}
+
+.white-player-timer,
+.black-player-timer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	font-size: 2rem;
+	font-weight: bold;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	transition: all 0.3s;
+}
+
+.white-player-timer > span,
+.black-player-timer > span {
+	color: white;
+	mix-blend-mode: difference;
+}
+
+.white-player-timer {
+	margin-top: 20px;
+	border-radius: 10px 10px 0 0;
+	color: #000;
+}
+
+.black-player-timer {
+	border-radius: 0 0 10px 10px;
+	color: #fff;
+}

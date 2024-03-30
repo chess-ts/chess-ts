@@ -1,0 +1,27 @@
+stages:
+  - test
+  - archive
+
+unit-test-job:
+  stage: test
+  script:
+    - apt-get install unzip -y
+    - curl -fsSL https://deno.land/install.sh | sudo DENO_INSTALL=/usr/local sh
+    - chmod +x /usr/local/bin/deno
+    - cd engine
+    - deno test --coverage=coverage
+    - deno coverage coverage --html
+  coverage: '/.*All files[^|]*\|[^|]*\|[^|]*\|[^|]*\|\s*([0-9.]+)/'
+
+
+archive-job:
+    stage: archive
+    script:
+        - mv engine ..
+        - rm -rf *
+        - mv ../engine/* .
+    artifacts:
+        untracked: true
+        when: on_success
+        expire_in: 7 days
+        name: chess-ts
